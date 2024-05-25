@@ -1,0 +1,46 @@
+{
+  "name": "golden-tourism",
+  "author": "Mohammed Alrefai",
+  "type": "module",
+  "private": true,
+  "version": "0.0.1",
+  "scripts": {
+    "prepare": "node .husky/install.mjs; pnpm run --silent dprint:verify",
+    "clean": "find . -name 'node_modules' -type d -exec rm -rf {} +",
+    "update:all": "pnpm update --interactive --latest",
+    "dprint:verify": "command -v dprint >/dev/null || pnpm run dprint:install",
+    "dprint:install": "echo Install dprint for formatting: https://dprint.dev",
+    "format:check": "dprint check",
+    "format": "dprint fmt",
+    "lint": "eslint . --report-unused-disable-directives",
+    "lint:fix": "pnpm run lint --fix",
+    "type-check": "tsc -p tsconfig.json --noEmit",
+    "validate": "pnpm run lint; pnpm run format:check; pnpm run type-check",
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/check": "0.7.0",
+    "astro": "4.9.1"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "19.3.0",
+    "@eslint/js": "9.3.0",
+    "@total-typescript/ts-reset": "0.5.1",
+    "@types/node": "20.12.12",
+    "@typescript-eslint/eslint-plugin": "7.10.0",
+    "@typescript-eslint/parser": "7.10.0",
+    "commitizen": "4.3.0",
+    "cz-git": "1.9.1",
+    "eslint": "8.57.0",
+    "eslint-plugin-functional": "6.5.1",
+    "eslint-plugin-react-hooks": "4.6.2",
+    "eslint-plugin-react-refresh": "0.4.7",
+    "husky": "9.0.11",
+    "lint-staged": "15.2.5",
+    "typescript": "5.4.5"
+  }
+}

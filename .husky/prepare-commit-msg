@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+
+MESSAGE=$(head -n 1 .git/COMMIT_EDITMSG)
+readonly MESSAGE
+
+[ "${MESSAGE}" ] || if exec </dev/tty; then
+  pnpm exec cz --hook
+fi
